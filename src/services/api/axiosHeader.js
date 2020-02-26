@@ -1,5 +1,5 @@
-export default function axiosHeader(getState) {
-  const { token } = getState().auth;
+export default function axiosHeader() {
+  const token = localStorage.getItem("token");
   const config = {
     headers: {
       "Content-Type": "application/json"
@@ -7,7 +7,7 @@ export default function axiosHeader(getState) {
   };
 
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = token;
   }
 
   return config;

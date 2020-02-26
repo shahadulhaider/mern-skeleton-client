@@ -24,7 +24,7 @@ export const HeaderContainer = styled.div`
   .header-btns {
     img {
       border-radius: 50%;
-      width: 30px;
+      width: 40px;
     }
   }
 

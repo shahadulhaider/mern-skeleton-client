@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import { login } from "../../../actions/auth";
 import { MuiTextField } from "../../../components/TextField";
 import { FormContainer } from "../styles";
-import { getErrorText } from "../helper/error";
+import { getErrorText } from "../../helper/error";
 
 function Login() {
   const { register, handleSubmit, errors } = useForm();

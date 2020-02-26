@@ -13,6 +13,9 @@ import ForgotPassword from "../views/authentication/forgotPassword";
 import ResetPassword from "../views/authentication/resetPassword";
 import VerifyEmail from "../views/authentication/verifyEmail";
 import VerifyEmailNotify from "../views/authentication/verifyEmail/notify";
+import UsersList from "../views/profile/UsersList";
+import Profile from "../views/profile/Profile";
+import EditProfile from "../views/profile/EditProfile";
 
 function MainRouter() {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
@@ -60,6 +63,19 @@ function MainRouter() {
         path="/auth/verifyemail/:token"
         auth={isAuthenticated}
         component={VerifyEmail}
+      />
+      <Route exact path="/users" component={UsersList} />
+      <ProtectedRoute
+        exact
+        path="/users/:userId"
+        auth={isAuthenticated}
+        component={Profile}
+      />
+      <ProtectedRoute
+        exact
+        path="/users/edit/:userId"
+        auth={isAuthenticated}
+        component={EditProfile}
       />
     </Switch>
   );

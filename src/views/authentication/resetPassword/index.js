@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 
 import { MuiTextField } from "../../../components/TextField";
 import { resetUserPassword } from "../../../actions/auth";
-import { getErrorText } from "../helper/error";
+import { getErrorText } from "../../helper/error";
 
 function ResetPassword() {
   const { resetToken } = useParams();

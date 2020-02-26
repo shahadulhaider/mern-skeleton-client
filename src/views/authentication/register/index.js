@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 
 import { MuiTextField } from "../../../components/TextField";
 import { FormContainer } from "../styles";
-import { getErrorText } from "../helper/error";
+import { getErrorText } from "../../helper/error";
 import { registerNewUser } from "../../../actions/auth";
 
 function Register({ history }) {

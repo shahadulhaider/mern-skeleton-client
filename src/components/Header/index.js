@@ -19,10 +19,10 @@ function Header() {
   return (
     <HeaderContainer>
       <AppBar position="static">
-        <Toolbar className="container">
+        <Toolbar>
           <Typography variantt="h6">
             <Link to="/">
-              <AllInclusive /> Image <span>Logo</span>
+              <AllInclusive /> Image<span>Logo</span>
             </Link>
           </Typography>
           <div className="header-btns">

@@ -3,12 +3,13 @@ export const colors = {
   secondary: "#646464",
   fontWhite: "rgba(255, 255, 255, 0.98)",
   fontBlack: "#111",
-  error: "#ef5350",
-  success: "#66bb6a",
-  backgroundWhite: "#ffffff"
+  error: "#bb321f",
+  success: "#0B615E",
+  backgroundWhite: "#ffffff",
+  backgroundDark: "#848484"
 };
 
 export const fonts = {
-  primary: "Poppins",
+  primary: "Lato",
   secondary: "Raleway"
 };

@@ -14,23 +14,15 @@ import { handleLoading, handleSnackbar } from "./app";
 
 const baseUrl = "http://localhost:5000/api/auth";
 
-export const loadUser = () => async (dispatch, getState) => {
-  const { token } = getState().auth;
-
-  if (!token) {
-    return dispatch({ type: AUTH_FAIL });
-  }
-
+export const loadUser = () => async dispatch => {
   dispatch(handleLoading(true));
 
   try {
-    const {
-      data: { user }
-    } = await axios.get(`${baseUrl}/me`, axiosHeader(getState));
+    const { data } = await axios.get(`${baseUrl}/me`, axiosHeader());
 
     dispatch({
       type: USER_LOADED,
-      payload: user
+      payload: data.user
     });
   } catch (error) {
     dispatch({ type: AUTH_FAIL });
