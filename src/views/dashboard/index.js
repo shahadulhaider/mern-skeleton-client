@@ -1,24 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import styled from "styled-components";
-import { connect } from "react-redux";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 function Dashboard() {
   return (
-    <div className="container">
+    <div className='container'>
       <DashboardContainer>
-        <Typography variant="h4" align="center">
+        <Typography variant='h4' align='center'>
           Dashboard
         </Typography>
         <Button
-          variant="contained"
-          color="primary"
-          className="mt-5 btn btn-sm"
-          type="submit"
-        >
-          <Link to="/users">View Users List</Link>
+          variant='contained'
+          color='primary'
+          className='mt-5 btn btn-sm'
+          type='submit'>
+          <Link to='/users'>View Users List</Link>
         </Button>
       </DashboardContainer>
     </div>

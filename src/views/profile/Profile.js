@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams, useHistory } from "react-router-dom";
-import axios from "axios";
-import styled from "styled-components";
-import Tooltip from "@material-ui/core/Tooltip";
-import Typography from "@material-ui/core/Typography";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Divider from "@material-ui/core/Divider";
-import { AccountEdit, Account } from "mdi-material-ui";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams, useHistory } from 'react-router-dom';
+import axios from 'axios';
+import styled from 'styled-components';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Divider from '@material-ui/core/Divider';
+import { AccountEdit, Account } from 'mdi-material-ui';
 
-import DeleteProfile from "./DeleteProfile";
-import { handleLoading, handleSnackbar } from "../../actions/app";
-import axiosHeader from "../../services/api/axiosHeader";
+import DeleteProfile from './DeleteProfile';
+import { handleLoading, handleSnackbar } from '../../actions/app';
+import axiosHeader from '../../services/api/axiosHeader';
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -36,8 +36,8 @@ function Profile() {
         setUser(data.user);
       } catch (error) {
         const { data } = error.response;
-        history.push("/auth/login");
-        dispatch(handleSnackbar(true, "error", data.message));
+        history.push('/auth/login');
+        dispatch(handleSnackbar(true, 'error', data.message));
       } finally {
         dispatch(handleLoading(false));
       }
@@ -48,13 +48,13 @@ function Profile() {
   }, [url]);
 
   return (
-    <div className="container">
+    <div className='container'>
       {user && (
         <ProfileContainer>
-          <Typography variant="h4" className="mt-4 mb-2">
+          <Typography variant='h4' className='mt-4 mb-2'>
             Profile: {`${user.firstname} ${user.lastname}`}
           </Typography>
-          <Divider variant="inset" />
+          <Divider variant='inset' />
           <List dense>
             <ListItem>
               <ListItemAvatar>
@@ -65,8 +65,8 @@ function Profile() {
               <ListItemText primary={user.username} secondary={user.email} />
               {authUser && authUser._id === user._id && (
                 <ListItemSecondaryAction>
-                  <Link to={"edit/" + user._id}>
-                    <Tooltip title="Update Profile">
+                  <Link to={'edit/' + user._id}>
+                    <Tooltip title='Update Profile'>
                       <IconButton>
                         <AccountEdit />
                       </IconButton>
@@ -76,15 +76,15 @@ function Profile() {
                 </ListItemSecondaryAction>
               )}
             </ListItem>
-            <Divider variant="inset" />
+            <Divider variant='inset' />
             <ListItem>
               <ListItemText
-                primary={"Joined: " + new Date(user.createdAt).toDateString()}
+                primary={'Joined: ' + new Date(user.createdAt).toDateString()}
               />
             </ListItem>
             <ListItem>
               <ListItemText
-                primary={"Updated: " + new Date(user.updatedAt).toDateString()}
+                primary={'Updated: ' + new Date(user.updatedAt).toDateString()}
               />
             </ListItem>
           </List>

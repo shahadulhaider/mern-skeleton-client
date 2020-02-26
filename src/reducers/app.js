@@ -1,13 +1,13 @@
-import { DRAWER_STATE, SNACKBAR_STATE, LOADING_STATE } from "../store/types";
+import { DRAWER_STATE, SNACKBAR_STATE, LOADING_STATE } from '../store/types';
 
 const initialState = {
   drawerOpen: false,
   loading: false,
   snackbar: {
     open: false,
-    type: "",
-    message: ""
-  }
+    type: '',
+    message: '',
+  },
 };
 
 export default function(state = initialState, { type, payload }) {
@@ -15,7 +15,7 @@ export default function(state = initialState, { type, payload }) {
     case DRAWER_STATE: {
       return {
         ...state,
-        drawerOpen: payload
+        drawerOpen: payload,
       };
     }
 
@@ -25,15 +25,15 @@ export default function(state = initialState, { type, payload }) {
         snackbar: {
           open: payload.open,
           type: payload.type,
-          message: payload.message
-        }
+          message: payload.message,
+        },
       };
     }
 
     case LOADING_STATE: {
       return {
         ...state,
-        loading: payload
+        loading: payload,
       };
     }
 

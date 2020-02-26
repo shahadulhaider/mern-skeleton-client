@@ -5,13 +5,13 @@ import {
   AUTH_SUCCESS,
   USER_LOADED,
   LOGOUT_SUCCESS,
-  VERIFICATION_SUCCESS
-} from "../store/types";
+  VERIFICATION_SUCCESS,
+} from '../store/types';
 
 const initialState = {
   isAuthenticated: false,
   user: {},
-  token: localStorage.getItem("token")
+  token: localStorage.getItem('token'),
 };
 
 export default function(state = initialState, { type, payload }) {
@@ -19,30 +19,30 @@ export default function(state = initialState, { type, payload }) {
     case LOGIN_SUCCESS:
     case AUTH_SUCCESS:
     case VERIFICATION_SUCCESS: {
-      localStorage.setItem("token", payload.token);
+      localStorage.setItem('token', payload.token);
       return {
         ...state,
         isAuthenticated: true,
         user: payload.user,
-        token: payload.token
+        token: payload.token,
       };
     }
 
     case LOGOUT_SUCCESS:
     case AUTH_FAIL: {
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
       return {
         ...state,
         isAuthenticated: false,
         user: {},
-        token: null
+        token: null,
       };
     }
 
     case REGISTER_SUCCESS: {
       return {
         ...state,
-        user: payload
+        user: payload,
       };
     }
 
@@ -50,7 +50,7 @@ export default function(state = initialState, { type, payload }) {
       return {
         ...state,
         isAuthenticated: true,
-        user: payload
+        user: payload,
       };
     }
 

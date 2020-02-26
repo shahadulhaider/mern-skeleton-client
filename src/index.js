@@ -1,14 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-import Layout from "./layout";
-import MainRouter from "./routes";
-import store from "./store";
+import Layout from './layout';
+import MainRouter from './routes';
+import store from './store';
 
-import "./theme/styles/bootstrap-grid.min.css";
-
+import './theme/styles/bootstrap-grid.min.css';
 
 function Main() {
   return (
@@ -22,4 +21,4 @@ function Main() {
   );
 }
 
-ReactDOM.render(<Main />, document.getElementById("root"));
+ReactDOM.render(<Main />, document.getElementById('root'));

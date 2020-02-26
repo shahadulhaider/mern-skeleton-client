@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Popover from "@material-ui/core/Popover";
-import Tooltip from "@material-ui/core/Tooltip";
-import { PopoverContainer } from "./styles";
+import React, { useState } from 'react';
+import Popover from '@material-ui/core/Popover';
+import Tooltip from '@material-ui/core/Tooltip';
+import { PopoverContainer } from './styles';
 
 function MuiPopover({
   children,
   tooltip = null,
   trigger: Trigger,
-  triggerContent
+  triggerContent,
 }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -20,7 +20,7 @@ function MuiPopover({
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+  const id = open ? 'simple-popover' : undefined;
 
   return (
     <>
@@ -37,14 +37,13 @@ function MuiPopover({
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center"
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "center"
-        }}
-      >
+          vertical: 'top',
+          horizontal: 'center',
+        }}>
         <PopoverContainer onClick={handleClose}>{children}</PopoverContainer>
       </Popover>
     </>

@@ -1,9 +1,9 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 
 export const ProtectedRoute = ({ component, auth, ...rest }) => {
   return (
-    <CustomRoute component={component} auth={auth} redirectPath="/" {...rest} />
+    <CustomRoute component={component} auth={auth} redirectPath='/' {...rest} />
   );
 };
 
@@ -12,7 +12,7 @@ export const LoggedInRoute = ({ component, auth, ...rest }) => {
     <CustomRoute
       component={component}
       auth={!auth}
-      redirectPath="/dashboard"
+      redirectPath='/dashboard'
       {...rest}
     />
   );
@@ -34,7 +34,7 @@ function CustomRoute({
           <Redirect
             to={{
               pathname: redirectPath,
-              state: { from: renderProps.location }
+              state: { from: renderProps.location },
             }}
           />
         )

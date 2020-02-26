@@ -1,9 +1,9 @@
 export default function axiosHeader() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   const config = {
     headers: {
-      "Content-Type": "application/json"
-    }
+      'Content-Type': 'application/json',
+    },
   };
 
   if (token) {

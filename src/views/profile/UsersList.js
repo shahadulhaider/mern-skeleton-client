@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import axios from "axios";
-import Typography from "@material-ui/core/Typography";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import { ArrowRight, Account, AccountGroup } from "mdi-material-ui";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import { ArrowRight, Account, AccountGroup } from 'mdi-material-ui';
+import styled from 'styled-components';
 
-import { handleLoading, handleSnackbar } from "../../actions/app";
+import { handleLoading, handleSnackbar } from '../../actions/app';
 
 function UsersList() {
   const [users, setUsers] = useState([]);
@@ -24,12 +24,12 @@ function UsersList() {
     const fetchUsers = async () => {
       dispatch(handleLoading(true));
       try {
-        const { data } = await axios.get("http://localhost:5000/api/users");
+        const { data } = await axios.get('http://localhost:5000/api/users');
         setUsers(data.users);
       } catch (error) {
         console.log(error);
         const { data } = error.response;
-        dispatch(handleSnackbar(true, "error", data.message));
+        dispatch(handleSnackbar(true, 'error', data.message));
       } finally {
         dispatch(handleLoading(false));
       }
@@ -39,19 +39,19 @@ function UsersList() {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <div className='container mt-5'>
       <Container>
-        <div className="title">
+        <div className='title'>
           <span>
             <AccountGroup />
           </span>
-          <Typography variant="h5">Users</Typography>
+          <Typography variant='h5'>Users</Typography>
         </div>
         <List dense>
           {users &&
             users.map((user, i) => {
               return (
-                <Link to={"/users/" + user._id} key={i}>
+                <Link to={'/users/' + user._id} key={i}>
                   <ListItem button>
                     <ListItemAvatar>
                       <Avatar>
