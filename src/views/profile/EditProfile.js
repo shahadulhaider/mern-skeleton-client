@@ -60,8 +60,8 @@ function EditProfile() {
 
   return (
     <div className='container'>
-      <div className='col-md-4 mx-auto pt-5'>
-        <h2>Edit your profile</h2>
+      <div className='col-md-6 mx-auto pt-5'>
+        <h2>Edit your Profile</h2>
         <p>Please fill up the form to update your profile</p>
         <form onSubmit={handleSubmit(onSubmit)}>
           <MuiTextField
@@ -126,13 +126,25 @@ function EditProfile() {
             error={!!(errors && errors.lastname)}
             helperText={getErrorText(errors, 'lastname')}
           />
-
+          <MuiTextField
+            name='about'
+            label='About'
+            defaultValue={inputs.about}
+            onChange={handleChange}
+            margin='dense'
+            type='text'
+            variant='outlined'
+            fullWidth
+            multiline
+            inputRef={register({})}
+            error={!!(errors && errors.abut)}
+            helperText={getErrorText(errors, 'about')}
+          />
           <Button
             variant='contained'
             color='primary'
             className='mt-3'
-            type='submit'
-            fullWidth>
+            type='submit'>
             Update Profile
           </Button>
         </form>
